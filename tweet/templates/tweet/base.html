@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+    <style>
+    div.container {
+    height:auto;
+    max-width: 100%;
+    border: 2px solid gray;
+    background:#404643;
+}
+
+header, footer {
+    font-family: Comic Sans MS;
+    padding: 13px;
+    color: white;
+    background-color: #00aced;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 300px;
+    margin: 0;
+    padding: 2em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+article {
+    margin-left: 200px;
+    padding: 12px;
+    overflow: hidden;
+    height:auto;
+    background-color : white;
+ }
+
+p {
+    text-transform: uppercase;
+    color:black;
+    padding:3px;
+
+}
+
+a {
+    text-decoration:none;
+    color:white;
+}
+</style>
+
+<body style="height:auto; margin:auto;">
+
+<div class="container">
+
+    <header>
+        <h1>TWITTER TREND</h1>
+    </header>
+
+{% if object_name %}
+       <div style="float : left; padding:15px; margin-top:70px; margin-left:-20px; width:250px; ">
+        <ul style="list-style-type: none;">
+            {% for profiles in object_name %}
+            <li><p title='{{ profiles.profile_name }}'><a href="{% url 'tweet:detail' profiles.id %} ">
+                 {{ profiles.profile_name }} </a></p></li>
+            {% endfor %}
+        </ul>
+        </div>
+{% else %}
+    <h3>No topics to show</h3>>
+{% endif %}
+
+{% block body %}
+{% endblock %}
+</div>
+
+</body>
+</html>

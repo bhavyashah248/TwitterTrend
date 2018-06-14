@@ -1,0 +1,19 @@
+
+{% extends 'tweet/base.html'%}
+
+{% block body %}
+
+<article>
+<h1 style="text-transform: uppercase; text-decoration:underline;
+text-align:center; width:78%; color:#404643;">{{ profiles.profile_name }}</h1>
+
+<ul style="list-style-type:none;">
+    {% for twit in profiles.tweets_set.all %}
+    <li><p style="text-transform: capitalize; padding:2px; border:1px solid black; border-radius:15px;
+    width:650px; padding:15px; margin:25px; color:#404643;"> {{ twit.text }} </p></li>
+    {% endfor %}
+</ul>
+</article>
+
+<footer><pre>   DID YOU LIKED IT? :     YES     NO    </pre></footer>
+{% endblock %}
